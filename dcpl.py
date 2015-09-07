@@ -3,7 +3,7 @@
 
 from twitterbot import TwitterBot
 from datetime import datetime
-import cssselect, logging, lxml.html, os, re, requests, time, pyopenssl, ndg-httpsclient, pyasn1
+import cssselect, logging, lxml.html, os, re, requests, time
 
 logging.basicConfig(level=logging.INFO)
 
@@ -48,6 +48,9 @@ class MyTwitterBot(TwitterBot):
         
         
     def on_mention(self, tweet, prefix):
+
+    	def test():
+    		reply = search_dcpl("@booksfordc bk s Peter Sis Komodo")
 
         def search_sirsi(s):
             logging.warning("Valid: True")
@@ -110,36 +113,37 @@ class MyTwitterBot(TwitterBot):
             elif cat in [' a ',' abk ',' audio ',' audiobook ',' a-bk ',' audio-book ']:
                 return search_audio(search)
             else:
-                return search_sirsi(search)
+                return search_audio(search)
         
         text = tweet.text
         logging.warning(text)
         
-        if re.search(r'^(\.?)@booksfordc( audiobook | audio-book | audio | a-bk | abk | a | e\-book | e\-bk | ebook | ebk | e | book | bk | b |[ ]?)(search:|s:|find:|f:|search |s |find |f ).+', text) != None:
-            now = datetime.now()
-            created = tweet.created_at
-            day_delta = (datetime.now() - tweet.created_at).days
-            second_delta = (datetime.now() - tweet.created_at).seconds
-            # if day_delta == 0 and second_delta < 3600:
-            if 1 < 2:
-                # try:
-                logging.warning("User: " + str('@kidsbooksfordc'))
-                logging.warning("Current time: " + str(now) + "; Created time: " + str(created) + "; Difference (d): " + str(day_delta) + "; Difference (s): " + str(second_delta))
-                reply = search_dcpl(text)
-                self.post_tweet('@kidsbooksfordc' + ' ' + reply, reply_to=tweet)
-                time.sleep(70)
-                # except:
-                #     logging.warning("Outcome: Failed search")
-                #     time.sleep(70)
-                #     pass
-            else:
-                logging.warning("Valid: Old mention")
-                time.sleep(70)
-                pass
-        else:
-            logging.warning("Valid: False")
-            time.sleep(70)
-            pass
+        test()
+        
+        # if re.search(r'^(\.?)@booksfordc( audiobook | audio-book | audio | a-bk | abk | a | e\-book | e\-bk | ebook | ebk | e | book | bk | b |[ ]?)(search:|s:|find:|f:|search |s |find |f ).+', text) != None:
+        #     now = datetime.now()
+        #     created = tweet.created_at
+        #     day_delta = (datetime.now() - tweet.created_at).days
+        #     second_delta = (datetime.now() - tweet.created_at).seconds
+        #     if day_delta == 0 and second_delta < 3600:
+        #         try:
+	       #          logging.warning("User: " + str('@kidsbooksfordc'))
+	       #          logging.warning("Current time: " + str(now) + "; Created time: " + str(created) + "; Difference (d): " + str(day_delta) + "; Difference (s): " + str(second_delta))
+	       #          reply = search_dcpl(text)
+	       #          self.post_tweet('@kidsbooksfordc' + ' ' + reply, reply_to=tweet)
+	       #          time.sleep(1000)
+        #         except:
+        #             logging.warning("Outcome: Failed search")
+        #             time.sleep(70)
+        #             pass
+        #     else:
+        #         logging.warning("Valid: Old mention")
+        #         time.sleep(70)
+        #         pass
+        # else:
+        #     logging.warning("Valid: False")
+        #     time.sleep(70)
+        #     pass
 
     def on_timeline(self, tweet, prefix):
         pass
