@@ -113,13 +113,13 @@ class MyTwitterBot(TwitterBot):
             elif cat in [' a ',' abk ',' audio ',' audiobook ',' a-bk ',' audio-book ']:
                 return search_audio(search)
             else:
-                return search_audio(search)
+                return search_sirsi(search)
         
         text = tweet.text
         logging.warning(text)
         
         test()
-        
+
         # if re.search(r'^(\.?)@booksfordc( audiobook | audio-book | audio | a-bk | abk | a | e\-book | e\-bk | ebook | ebk | e | book | bk | b |[ ]?)(search:|s:|find:|f:|search |s |find |f ).+', text) != None:
         #     now = datetime.now()
         #     created = tweet.created_at

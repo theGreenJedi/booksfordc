@@ -1,4 +1,4 @@
--e git://github.com/thricedotted/twitterbot.git#egg=twitterbot
+-e git://github.com/emanuelfeld/twitterbot.git#egg=twitterbot
 
 cssselect==0.9.1
 lxml==3.4.2
