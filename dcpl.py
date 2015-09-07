@@ -50,7 +50,8 @@ class MyTwitterBot(TwitterBot):
     def on_mention(self, tweet, prefix):
 
     	def test():
-    		reply = search_dcpl("@booksfordc bk s Peter Sis Komodo")
+    		# reply = search_dcpl("@booksfordc bk s Peter Sis Komodo")
+    		reply = search_dcpl("@booksfordc ebk s Gary Rivlin Katrina")
 
         def search_sirsi(s):
             logging.warning("Valid: True")
