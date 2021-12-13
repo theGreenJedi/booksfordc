@@ -1,7 +1,7 @@
 -e git://github.com/thricedotted/twitterbot.git#egg=twitterbot
 
 cssselect==0.9.1
-lxml==3.4.2
+lxml==4.6.5
 oauthlib==0.7.2
 requests==2.4.3
 requests-oauthlib==0.4.1
